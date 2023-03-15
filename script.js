@@ -1,8 +1,11 @@
   var carrito = [];
       var precios = {
-        "Producto 1": 10,
-        "Producto 2": 20,
-        "Producto 3": 30
+        "Camiseta talla L marca Polo": 10,
+        "Camisa talla M marca Polo": 20,
+        "Camiseta marca el toro talla S": 30,
+        "Jean mamey de Pull n bear": 30,
+        "Carta de Yugioh": 30,
+        "Bicicleta Nimbus 2001": 30
       };
 
       function agregarProducto(nombre, precio) {
@@ -39,5 +42,5 @@
 
       function ciao(){
         console.log("gracias por tu compra, te esperamos pronto")
-        alert("gracias por tu compra, te esperamos pronto")
+        alert("gracias! tu compra ya esta en camino")
       }

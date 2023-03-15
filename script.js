@@ -44,3 +44,63 @@
         console.log("gracias por tu compra, te esperamos pronto")
         alert("gracias! tu compra ya esta en camino")
       }
+
+      function borrarCarrito() {
+        // Borrar el carrito de compras
+        carrito = [];
+        // Actualizar la vista del carrito de compras
+        actualizarVistaCarrito();
+        actualizarVistaTotal();
+      }
+
+      function actualizarVistaCarrito() {
+        // Obtener el contenedor del carrito de compras
+        var contenedorCarrito = document.getElementById("carrito");
+        // Eliminar todos los elementos del contenedor
+        contenedorCarrito.innerHTML = "";
+        // Verificar si el carrito está vacío
+        if (carrito.length === 0) {
+          // Añadir un mensaje indicando que el carrito está vacío
+          contenedorCarrito.innerHTML = "<p>El carrito esta vacio</p>";
+        } else {
+          // Recorrer los elementos del carrito de compras y crear elementos HTML para cada uno
+          for (var i = 0; i < carrito.length; i++) {
+            var itemCarrito = document.createElement("div");
+            itemCarrito.innerHTML = carrito[i].nombre + " - $" + carrito[i].precio;
+            contenedorCarrito.appendChild(itemCarrito);
+          }
+        }
+      }
+
+      function actualizarVistaTotal() {
+        // Obtener el contenedor del carrito de compras
+        var contenedorTotal = document.getElementById("total");
+        // Eliminar todos los elementos del contenedor
+        contenedorTotal.innerHTML = "";
+        // Verificar si el carrito está vacío
+        if (carrito.length === 0) {
+          // Añadir un mensaje indicando que el carrito está vacío
+          contenedorCarrito.innerHTML = "<p>su total es 0</p>";
+        } else {
+          // Recorrer los elementos del carrito de compras y crear elementos HTML para cada uno
+          for (var i = 0; i < carrito.length; i++) {
+            var itemCarrito = document.createElement("div");
+            itemCarrito.innerHTML = carrito[i].nombre + " - $" + carrito[i].precio;
+            contenedorCarrito.appendChild(itemCarrito);
+          }
+        }
+      }
+
+      var mesVencimiento = document.getElementById("mes-vencimiento").value;
+      var anioVencimiento = document.getElementById("anio-vencimiento").value;
+
+
+     
+
+      
+
+     
+
+      
+      
+      

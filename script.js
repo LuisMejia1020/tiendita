@@ -9,21 +9,36 @@
       };
 
       function agregarProducto(nombre, precio) {
-        carrito.push(nombre);
-        actualizarCarrito();
-        actualizarTotal(precio);
+        carrito.push({nombre: nombre, precio: precio});
+        actualizarVistaCarrito();
+        actualizarVistaTotal();
       }
+
+      
 
       function actualizarCarrito() {
         var carritoElement = document.getElementById("carrito");
         carritoElement.innerHTML = "";
-
+      
         for (var i = 0; i < carrito.length; i++) {
           var productoElement = document.createElement("li");
           productoElement.textContent = carrito[i];
           carritoElement.appendChild(productoElement);
+      
+          // Agregar botón de borrar para cada elemento del carrito
+          var botonBorrar = document.createElement("button");
+          botonBorrar.textContent = "Borrar";
+          botonBorrar.dataset.index = i; // Almacenar el índice del artículo en el dataset del botón
+          botonBorrar.addEventListener("click", function() {
+            var index = parseInt(this.dataset.index);
+            carrito.splice(index, 1); // Eliminar el artículo correspondiente del carrito
+            actualizarCarrito(); // Actualizar la vista del carrito
+            actualizarTotal(); // Actualizar el total
+          });
+          productoElement.appendChild(botonBorrar);
         }
       }
+      
 
       function actualizarTotal(precio) {
         var totalElement = document.getElementById("total");
@@ -53,43 +68,41 @@
         actualizarVistaTotal();
       }
 
+      function borrarArticulo(index) {
+        carrito.splice(index, 1);
+        actualizarVistaCarrito();
+        actualizarVistaTotal();
+      }
+
       function actualizarVistaCarrito() {
-        // Obtener el contenedor del carrito de compras
         var contenedorCarrito = document.getElementById("carrito");
-        // Eliminar todos los elementos del contenedor
         contenedorCarrito.innerHTML = "";
-        // Verificar si el carrito está vacío
         if (carrito.length === 0) {
-          // Añadir un mensaje indicando que el carrito está vacío
           contenedorCarrito.innerHTML = "<p>El carrito esta vacio</p>";
         } else {
-          // Recorrer los elementos del carrito de compras y crear elementos HTML para cada uno
           for (var i = 0; i < carrito.length; i++) {
             var itemCarrito = document.createElement("div");
+            var botonBorrar = document.createElement("button");
+            botonBorrar.textContent = "Borrar";
+            botonBorrar.addEventListener("click", borrarArticulo.bind(null, i));
             itemCarrito.innerHTML = carrito[i].nombre + " - $" + carrito[i].precio;
+            itemCarrito.appendChild(botonBorrar);
             contenedorCarrito.appendChild(itemCarrito);
           }
         }
       }
 
       function actualizarVistaTotal() {
-        // Obtener el contenedor del carrito de compras
         var contenedorTotal = document.getElementById("total");
-        // Eliminar todos los elementos del contenedor
-        contenedorTotal.innerHTML = "";
-        // Verificar si el carrito está vacío
-        if (carrito.length === 0) {
-          // Añadir un mensaje indicando que el carrito está vacío
-          contenedorCarrito.innerHTML = "<p>su total es 0</p>";
-        } else {
-          // Recorrer los elementos del carrito de compras y crear elementos HTML para cada uno
-          for (var i = 0; i < carrito.length; i++) {
-            var itemCarrito = document.createElement("div");
-            itemCarrito.innerHTML = carrito[i].nombre + " - $" + carrito[i].precio;
-            contenedorCarrito.appendChild(itemCarrito);
-          }
+        var total = 0;
+        for (var i = 0; i < carrito.length; i++) {
+          total += carrito[i].precio;
         }
+        contenedorTotal.textContent = total;
       }
+
+    
+      
 
       var mesVencimiento = document.getElementById("mes-vencimiento").value;
       var anioVencimiento = document.getElementById("anio-vencimiento").value;

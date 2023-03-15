@@ -11,9 +11,13 @@
                 <nav>
                         <ul>
                                 <li><a href="#">Inicio</a></li>
-                                <li><a href="#">Categorias</a></li>
-                                <li><a href="#">Ofertas</a></li>
-                                <li><a href="#">Mi Cuenta</a></li>
+                                <li><a href="#ropa">Ropa</a></li>
+                                <li><a href="#tecnologia">Tecnologia</a></li>
+                                <li><a href="#belleza">Belleza y cuidado personal</a></li>
+                                <li><a href="#videojuegos">Videojuegos</a></li>
+                                <li><a href="#hogar">Hogar</a></li>
+                                <li><a href="#mascotas">Mascotas</a></li>
+                                <li><a href="#libros">Libros</a></li>
                         </ul>
                 </nav>
                 <div>
@@ -29,7 +33,7 @@
                 </div>
         </header>
         <main>
-                <section>
+                <section id="ropa">
                         <h1>Ropa</h1>
                         <ul>
                           <li>Camiseta marca Polo <button onclick="agregarProducto('Camiseta talla L marca Polo',250)">Agregar al carrito</button>
@@ -151,7 +155,7 @@
                           </li>
                         </ul>
                 </section>
-                <section>
+                <section id="tecnologia">
                         <h1>Tecnologia</h1>
                         <ul>
                                 <li>Iphone 13 <button onclick="agregarProducto('Iphone 13',25000)">Agregar al carrito</button>
@@ -171,7 +175,7 @@
                                 </li>
                         </ul>
                 </section>
-                <section>
+                <section id="belleza">
                         <h1>Belleza y cuidado personal</h1>
                         <ul>
                                 <li>Victoria Secret bombshell <button onclick="agregarProducto('Victoria Secret bombshell',1200)">Agregar al carrito</button>
@@ -191,7 +195,7 @@
                                 </li>
                         </ul>
                 </section>
-                <section>
+                <section id="videojuegos">
                         <h1>videojuegos</h1>
                         <ul>
                                 <li>Playstation 5 <button onclick="agregarProducto('playstation 5',25000)">Agregar al carrito</button>
@@ -211,7 +215,7 @@
                                 </li>
                         </ul>
                 </section>
-                <section>
+                <section id="hogar">
                         <h1>Hogar</h1>
                         <ul>
                                 <li> Alfombra textura M <button onclick="agregarProducto('Alfombra textura M', 8000)">Agregar al carrito</button>
@@ -231,7 +235,7 @@
                                 </li>
                         </ul>
                 </section>
-                <section>
+                <section id="mascotas">
                         <h1>Mascotas</h1>
                         <ul>
                                 <li> Pelota para perro HO-LEE <button onclick="agregarProducto('Pelota para perro HO-LEE', 189)">Agregar al carrito</button>
@@ -251,7 +255,7 @@
                                 </li>
                         </ul>
                 </section>
-                <section>
+                <section id="libros">
                         <h1>libros</h1>
                         <ul>
                                 <li> Tristan e Isolda y el Cantar de los Nibelungos <button onclick="agregarProducto('Tristan e Isolda y el Cantar de los Nibelungos', 499)">Agregar al carrito</button>
@@ -272,14 +276,14 @@
                         </ul>
                 </section>
                 <h1>Carrito</h1>
-                <ul id="carrito"></ul>
+                <ul class="carrito, carrito table" id="carrito"></ul>
                 <p>Total: <span id="total">0</span></p>
                 <button onclick="irAlCheckout()">Ir al checkout</button>
                 <button onclick="borrarCarrito()">Borrar Carrito</button>
 
 
 
-                <div id="checkout" style="display: none;">
+                <div class="checkout, checkout label" id="checkout" style="display: none;">
                 <h1>Checkout</h1>
                 <p>Total: <span id="totalCheckout">0</span></p>
                 <form>
@@ -310,7 +314,7 @@
                                 <!-- ...continuar con las opciones para los otros años -->
                                 </select><br>
 
-                        <label for="NumeroSecreto">Numero Secreto</label>
+                        <label for="NumeroSecreto">CVV</label>
                         <input type="text" id="NumeroSecreto" required><br>
 
                         <button onclick="ciao()">Comprar</button>

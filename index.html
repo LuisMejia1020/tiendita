@@ -2,6 +2,8 @@
 <html>
 <head>
         <title>Amazonhn</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
         <link rel="stylesheet" href="estilos.css">
         <script src="script.js"></script>
 
@@ -18,6 +20,8 @@
                                 <li><a href="#hogar">Hogar</a></li>
                                 <li><a href="#mascotas">Mascotas</a></li>
                                 <li><a href="#libros">Libros</a></li>
+                                <li><a href="#carrito">Ir al carrito </a></li>
+                                
                         </ul>
                 </nav>
                 <div>
@@ -26,9 +30,59 @@
                                 <input type="text" placeholder="Buscar">
                                 <button type="submit">Buscar</button>
                         </form>
+                        
+                        <button class="botonCarrito" onclick="irAlLogin()">iniciar sesion</button>
+                        
                 </div>
         </header>
         <main>
+               
+                <div class="container Login" style="display: none;" id="formularios">
+                        <form class="form" id="login">
+                                <h1 class="form__title">Login</h1>
+                                <div class="form__message form__message--error"></div>
+                                <div class="form__input-group">
+                                    <input type="text" class="form__input" autofocus placeholder="Username or email">
+                                    <div class="form__input-error-message"></div>
+                                </div>
+                                <div class="form__input-group">
+                                    <input type="password" class="form__input" autofocus placeholder="Password">
+                                    <div class="form__input-error-message"></div>
+                                </div>
+                                <button class="form__button" type="submit">Continue</button>
+                                <p class="form__text">
+                                    <a href="#" class="form__link">Forgot your password?</a>
+                                </p>
+                                <p class="form__text">
+                                    <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
+                                </p>
+                            </form>
+                            <form class="form form--hidden" id="createAccount">
+                                <h1 class="form__title">Create Account</h1>
+                                <div class="form__message form__message--error"></div>
+                                <div class="form__input-group">
+                                    <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
+                                    <div class="form__input-error-message"></div>
+                                </div>
+                                <div class="form__input-group">
+                                    <input type="text" class="form__input" autofocus placeholder="Email Address">
+                                    <div class="form__input-error-message"></div>
+                                </div>
+                                <div class="form__input-group">
+                                    <input type="password" class="form__input" autofocus placeholder="Password">
+                                    <div class="form__input-error-message"></div>
+                                </div>
+                                <div class="form__input-group">
+                                    <input type="password" class="form__input" autofocus placeholder="Confirm password">
+                                    <div class="form__input-error-message"></div>
+                                </div>
+                                <button class="form__button" href="linkLogin" type="submit">Continue</button>
+                                <p class="form__text">
+                                    <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
+                                </p>
+                            </form>
+                </div>
+
                 <section id="ropa">
                         <h1>Ropa</h1>
                         <ul>
@@ -157,16 +211,37 @@
                                 <li>Iphone 13 <button onclick="agregarProducto('Iphone 13',25000)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L25000.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="Graphite">Graphite</option>
+                                          <option value="Black">Negro</option>
+                                          <option value="Morado">Morado</option>
+                                          <option value="dorado">Dorado</option>
+                                        </select>
                                         <img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone13_hero_09142021_inline.jpg.large.jpg" width="300" height="200"alt="Iphone 13">
                                 </li>
                                 <li>Iphone 12 <button onclick="agregarProducto('Iphone 12',23000)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L23000.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="Graphite">Graphite</option>
+                                          <option value="Black">Negro</option>
+                                          <option value="Morado">Morado</option>
+                                          <option value="dorado">Dorado</option>
+                                        </select>
                                         <img src="https://cdn.dxomark.com/wp-content/uploads/medias/post-70968/apple_iphone_12_mini_.jpg" width="300" height="200"alt="Iphone 12">
                                 </li>
                                 <li>Iphone 14 <button onclick="agregarProducto('Iphone 14',30000)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L30000.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="Graphite">Graphite</option>
+                                          <option value="Black">Negro</option>
+                                          <option value="Morado">Morado</option>
+                                          <option value="dorado">Dorado</option>
+                                        </select>
                                         <img src="https://cdn.dxomark.com/wp-content/uploads/medias/post-126771/Apple-iPhone-14-Pro_FINAL_featured-image-packshot-review-1.jpg" width="300" height="200"alt="Iphone 14">
                                 </li>
                         </ul>
@@ -177,16 +252,40 @@
                                 <li>Victoria Secret bombshell <button onclick="agregarProducto('Victoria Secret bombshell',1200)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L1200.00</span>
+                                        <label for="tamaño">Tamano:</label>
+                                        <select name="tamaño" id="tamaño">
+                                          <option value="xs">XS</option>
+                                          <option value="s">S</option>
+                                          <option value="m">M</option>
+                                          <option value="l">L</option>
+                                          <option value="xl">XL</option>
+                                        </select>
                                         <img src="https://images.tcdn.com.br/img/img_prod/626030/bombshell_victorias_secret_feminino_eau_de_parfum_5848_1_cbb6a727837457c7e447202a8d51c446.jpg" width="300" height="200"alt="Victoria Secret bombshell">
                                 </li>
                                 <li>Victoria secrete Marine Splash <button onclick="agregarProducto('Victoria secrete Marine Splash',468)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L468.00</span>
+                                        <label for="tamaño">Tamano:</label>
+                                        <select name="tamaño" id="tamaño">
+                                          <option value="xs">XS</option>
+                                          <option value="s">S</option>
+                                          <option value="m">M</option>
+                                          <option value="l">L</option>
+                                          <option value="xl">XL</option>
+                                        </select>
                                         <img src="http://cdn.shopify.com/s/files/1/0580/7253/1059/products/victorias-secret-marine-splash-fragrance-mist.jpg?v=1663725932" width="300" height="200"alt="Victoria secret Marine Splash">
                                 </li>
                                 <li>Victoria Secret Fragance <button onclick="agregarProducto('Victoria Secret Fragance',689)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L689.00</span>
+                                        <label for="tamaño">Tamano:</label>
+                                        <select name="tamaño" id="tamaño">
+                                          <option value="xs">XS</option>
+                                          <option value="s">S</option>
+                                          <option value="m">M</option>
+                                          <option value="l">L</option>
+                                          <option value="xl">XL</option>
+                                        </select>
                                         <img src="https://www.victoriassecret.com/p/504x672/tif/e5/ba/e5ba82e44ee64a2c952e33911fbcbb45/111910601340_OF_F.jpg" width="300" height="200"alt="Victoria Secret fragance">
                                 </li>
                         </ul>
@@ -197,16 +296,32 @@
                                 <li>Playstation 5 <button onclick="agregarProducto('playstation 5',25000)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L25000.00</span>
+                                        <label for="tipo">Tipo:</label>
+                                        <select name="tipo" id="tipo">
+                                          <option value="digital">Digital</option>
+                                          <option value="normal">Normal</option>
+                                        </select>
                                         <img src="https://www.elheraldo.co/sites/default/files/articulo/2020/12/26/ps5.jpg" width="300" height="200"alt="Playstation 5">
                                 </li>
                                 <li>Controller ps5 <button onclick="agregarProducto('Controller ps5',1800)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L1800.00</span>
+                                        <label for="diseno">Diseno:</label>
+                                        <select name="diseno" id="diseno">
+                                          <option value="Dragonball">anime-type</option>
+                                          <option value="racer">F1-type</option>
+                                        </select>
                                         <img src="https://media.wired.com/photos/5e9110887b575f0008effd4f/master/w_2560%2Cc_limit/Culture_ps5_49747503557_566da5ebc8_3k.jpg" width="300" height="200"alt="controller ps5">
                                 </li>
                                 <li>Samsung led 85 pulgadas <button onclick="agregarProducto('Samsung led 85 pulgadas', 50000)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L50000.00</span>
+                                        <label for="tamaño">Tamano:</label>
+                                        <select name="tamaño" id="tamaño">
+                                          <option value="60'">60'</option>
+                                          <option value="72'">72'</option>
+                                          <option value="80'">80'</option>
+                                        </select>
                                         <img src="https://tm.ibxk.com.br/2021/10/07/07175901500393.jpg?ims=1200x675" width="300" height="200"alt="Samsung led ">
                                 </li>
                         </ul>
@@ -217,16 +332,34 @@
                                 <li> Alfombra textura M <button onclick="agregarProducto('Alfombra textura M', 8000)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L8000.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="rojo'">Rojo</option>
+                                          <option value="azul">Azul</option>
+                                          <option value="morado">Morado</option>
+                                        </select>
                                         <img src="https://static2.bigstockphoto.com/1/5/4/large1500/4512291.jpg" width="300" height="200"alt="Alfombra M">
                                 </li>
                                 <li> Lampara S21 <button onclick="agregarProducto('Lampara s21', 500)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L500.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="rojo'">Rojo</option>
+                                          <option value="azul">Azul</option>
+                                          <option value="morado">Morado</option>
+                                        </select>
                                         <img src="https://lamparasfokuss.com/wp-content/uploads/2020/08/Lampara-Fashion-2-de-mesa-MS1.jpg" width="300" height="200"alt="Lampara S21">
                                 </li>
                                 <li> Comedor 6 sillas <button onclick="agregarProducto('Comedor 6 sillas', 4683)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L4683.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="rojo'">Rojo</option>
+                                          <option value="azul">Azul</option>
+                                          <option value="morado">Morado</option>
+                                        </select>
                                         <img src="https://www.mobydecmuebles.com/wp-content/uploads/2018/10/comedor_italia-600x600.jpg" width="300" height="200"alt="Comedor 6 sillas">
                                 </li>
                         </ul>
@@ -237,16 +370,34 @@
                                 <li> Pelota para perro HO-LEE <button onclick="agregarProducto('Pelota para perro HO-LEE', 189)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L189.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="rojo'">Rojo</option>
+                                          <option value="azul">Azul</option>
+                                          <option value="morado">Morado</option>
+                                        </select>
                                         <img src="https://animalnatura.com/1065-large_default/jw-pelota-hol-ee-para-perros.jpg" width="300" height="200"alt="Pelota para perro HO-LEE">
                                 </li>
                                 <li> Correa para perro <button onclick="agregarProducto('Correa para perro', 149)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L149.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="rojo'">Rojo</option>
+                                          <option value="azul">Azul</option>
+                                          <option value="morado">Morado</option>
+                                        </select>
                                         <img src="https://soyunperro.com/wp-content/uploads/2017/09/perro-cpm-juguetes.jpg" width="300" height="200"alt="Correa para perro">
                                 </li>
                                 <li> Casa para perro <button onclick="agregarProducto('casa para perro', 12000)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L12000.00</span>
+                                        <label for="color">Color:</label>
+                                        <select name="color" id="color">
+                                          <option value="rojo'">Rojo</option>
+                                          <option value="azul">Azul</option>
+                                          <option value="morado">Morado</option>
+                                        </select>
                                         <img src="https://images.ecestaticos.com/VJqSCjcJNCT1PYgOKPltXjfxEEg=/81x0:1219x853/1200x899/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F149%2F2d6%2F4a5%2F1492d64a53593d63a469f4c2685ac066.jpg" width="300" height="200"alt="Casa para perro">
                                 </li>
                         </ul>
@@ -257,17 +408,35 @@
                                 <li> Tristan e Isolda y el Cantar de los Nibelungos <button onclick="agregarProducto('Tristan e Isolda y el Cantar de los Nibelungos', 499)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L499.00</span>
+                                        <label for="tipo">Tipo:</label>
+                                        <select name="tipo" id="tipo">
+                                          <option value="EdicionEspecial">Especial</option>
+                                          <option value="EdicionNormal">Normal</option>
+                                          <option value="EdicionDigital">Digital</option>
+                                        </select>
                                         <img src="https://m.media-amazon.com/images/I/81v3HEe9YcL._AC_UF1000,1000_QL80_.jpg" width="300" height="200"alt="Tristan e Isolda y el Cantar de los Nibelungos">
                                 </li>
                                 <li> 1984 <button onclick="agregarProducto('1984', 499)">Agregar al carrito</button>
                                         <p>Descripcion del producto 1</p>
                                         <span>L499.00</span>
+                                        <label for="tipo">Tipo:</label>
+                                        <select name="tipo" id="tipo">
+                                          <option value="EdicionEspecial">Especial</option>
+                                          <option value="EdicionNormal">Normal</option>
+                                          <option value="EdicionDigital">Digital</option>
+                                        </select>
                                         <img src="https://images.booksense.com/images/935/262/9780452262935.jpg" width="300" height="200"alt="1984">
                                 </li>
                                 <li> Sapiens <button onclick="agregarProducto('Sapiens', 499)">Agregar al carrito</button>
                                         
                                         <p>Descripcion del producto 1</p>
                                         <span>L499.00</span>
+                                        <label for="tipo">Tipo:</label>
+                                        <select name="tipo" id="tipo">
+                                          <option value="EdicionEspecial">Especial</option>
+                                          <option value="EdicionNormal">Normal</option>
+                                          <option value="EdicionDigital">Digital</option>
+                                        </select>
                                         <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71VoQvRzxYL.jpg" width="300" height="200"alt="Sapiens">
                                 </li>
                         </ul>
@@ -275,12 +444,17 @@
                 <h1>Carrito</h1>
                 <ul class="carrito, carrito table" id="carrito"></ul>
                 <p>Total: <span id="total">0</span></p>
-                <button onclick="irAlCheckout()">Ir al checkout</button>
-                <button onclick="borrarCarrito()">Borrar Carrito</button>
+                <button class="botonCarrito" onclick="irAlCheckout()">Ir al checkout</button>
+                <button class="botonCarrito" onclick="borrarCarrito()">Borrar Carrito</button>
+                <button class="botonCarrito" id="btn-compras">Ir a compras</button>
+                <section id="seccion-compras">
+                        <!-- Contenido de la sección de compras -->
+                </section>
 
 
 
-                <div class="checkout, checkout label, checkout input" id="checkout" style="display: none;">
+
+                <div class="checkout checkout label checkout input" id="checkout" style="display: none;">
                 <h1>Checkout</h1>
                 <p>Total: <span id="totalCheckout">0</span></p>
                 <form>
@@ -294,7 +468,7 @@
                         <input type="text" id="direccion" required><br>
 
                         <label for="numero-tarjeta">Numero de tarjeta:</label>
-                        <input type="text" id="numero-tarjeta" name="numero-tarjeta" pattern="[0-9]{13,19}" required><br>
+                        <input type="text" id="numero-tarjeta" name="numero-tarjeta" pattern="[0-9]{13,16}" required><br>
                         
 
                         <label for="mes-vencimiento">Fecha de vencimiento:</label>
@@ -316,7 +490,9 @@
 
                         <button onclick="ciao()">Comprar</button>
                 </form>
-                </div>
+           </div>
+
+               
               
                 
         </main>

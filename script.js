@@ -1,4 +1,60 @@
-  var carrito = [];
+function setFormMessage(formElement, type, message) {
+  const messageElement = formElement.querySelector(".form__message");
+
+  messageElement.textContent = message;
+  messageElement.classList.remove("form__message--success", "form__message--error");
+  messageElement.classList.add(`form__message--${type}`);
+}
+
+function setInputError(inputElement, message) {
+  inputElement.classList.add("form__input--error");
+  inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+}
+
+function clearInputError(inputElement) {
+  inputElement.classList.remove("form__input--error");
+  inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.querySelector("#login");
+  const createAccountForm = document.querySelector("#createAccount");
+
+  document.querySelector("#linkCreateAccount").addEventListener("click", e => {
+      e.preventDefault();
+      loginForm.classList.add("form--hidden");
+      createAccountForm.classList.remove("form--hidden");
+  });
+
+  document.querySelector("#linkLogin").addEventListener("click", e => {
+      e.preventDefault();
+      loginForm.classList.remove("form--hidden");
+      createAccountForm.classList.add("form--hidden");
+  });
+
+  loginForm.addEventListener("submit", e => {
+      e.preventDefault();
+
+      // Perform your AJAX/Fetch login
+
+      setFormMessage(loginForm, "error", "Invalid username/password combination");
+  });
+
+  document.querySelectorAll(".form__input").forEach(inputElement => {
+      inputElement.addEventListener("blur", e => {
+          if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 6) {
+              setInputError(inputElement, "Username must be at least 6 characters in length");
+          }
+      });
+
+      inputElement.addEventListener("input", e => {
+          clearInputError(inputElement);
+      });
+  });
+}); 
+ 
+
+ var carrito = [];
       var precios = {
         "Camiseta talla L marca Polo": 10,
         "Camisa talla M marca Polo": 20,
@@ -13,8 +69,6 @@
         actualizarVistaCarrito();
         actualizarVistaTotal();
       }
-
-      
 
       function actualizarCarrito() {
         var carritoElement = document.getElementById("carrito");
@@ -46,13 +100,19 @@
         total += precio;
         totalElement.textContent = total;
 
-        var totalCheckoutElement = document.getElementById("totalCheckout");
+      var totalCheckoutElement = document.getElementById("totalCheckout");
         totalCheckoutElement.textContent = total;
       }
 
       function irAlCheckout() {
         var checkoutElement = document.getElementById("checkout");
         checkoutElement.style.display = "block";
+      }
+
+
+      function irAlLogin() {
+        var checkoutElement2 = document.getElementById("formularios");
+        checkoutElement2.style.display = "block";
       }
 
       function ciao(){
@@ -85,7 +145,7 @@
             var botonBorrar = document.createElement("button");
             botonBorrar.textContent = "Borrar";
             botonBorrar.addEventListener("click", borrarArticulo.bind(null, i));
-            itemCarrito.innerHTML = carrito[i].nombre + " - $" + carrito[i].precio;
+            itemCarrito.innerHTML = carrito[i].nombre + " - L" + carrito[i].precio;
             itemCarrito.appendChild(botonBorrar);
             contenedorCarrito.appendChild(itemCarrito);
           }
@@ -101,11 +161,20 @@
         contenedorTotal.textContent = total;
       }
 
-    
-      
-
       var mesVencimiento = document.getElementById("mes-vencimiento").value;
       var anioVencimiento = document.getElementById("anio-vencimiento").value;
+
+
+    
+
+    
+
+
+
+
+    
+
+            
 
 
      

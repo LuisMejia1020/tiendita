@@ -158,6 +158,7 @@ function ocultar() {
             var itemCarrito = document.createElement("div");
             var botonBorrar = document.createElement("button");
             botonBorrar.textContent = "Borrar";
+            botonBorrar.classList.add("botonCarrito")
             botonBorrar.addEventListener("click", borrarArticulo.bind(null, i));
             itemCarrito.innerHTML = carrito[i].nombre + " - L" + carrito[i].precio;
             itemCarrito.appendChild(botonBorrar);

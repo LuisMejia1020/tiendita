@@ -52,6 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 }); 
+
+function ocultar() {
+  var div = document.getElementById("formularios");
+  div.classList.add("oculto");
+}
+
  
 
  var carrito = [];
@@ -68,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         carrito.push({nombre: nombre, precio: precio});
         actualizarVistaCarrito();
         actualizarVistaTotal();
+        alert("Producto agregado")
       }
 
       function actualizarCarrito() {
@@ -81,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
           // Agregar botón de borrar para cada elemento del carrito
           var botonBorrar = document.createElement("button");
+          botonBorrar.classList.add("botonCarrito")
           botonBorrar.textContent = "Borrar";
           botonBorrar.dataset.index = i; // Almacenar el índice del artículo en el dataset del botón
           botonBorrar.addEventListener("click", function() {
@@ -115,9 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
         checkoutElement2.style.display = "block";
       }
 
+      function ciaoLogin(){
+        var formsElement = document.getElementById("formularios")
+        formsElement.style.display = "none"
+      }
+
       function ciao(){
         console.log("gracias por tu compra, te esperamos pronto")
         alert("gracias! tu compra ya esta en camino")
+        borrarCarrito()
       }
 
       function borrarCarrito() {
@@ -163,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       var mesVencimiento = document.getElementById("mes-vencimiento").value;
       var anioVencimiento = document.getElementById("anio-vencimiento").value;
+
 
 
     
